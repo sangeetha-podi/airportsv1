@@ -47,7 +47,7 @@ def city(city_id):
     else:
         cities = naive_cache["cities"]
     if city_id not in naive_cache:
-        city = filter(lambda c: c['id'] == city_id, cities)
+        city = list(filter(lambda c: c['id'] == city_id, cities))
         if len(city) < 1:
             abort(404)
         latlng = (city[0]['latitude'], city[0]['longitude'])
